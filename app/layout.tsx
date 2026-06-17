@@ -28,7 +28,7 @@ export default function RootLayout({
         <nav></nav>
         {children}
         <footer className="bg-foreground py-10">
-          <div className="text-[oklch(52%_0.006_260)]">
+          <div className="text-tiny">
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-lg text-background-light"></div>
@@ -36,7 +36,7 @@ export default function RootLayout({
               </div>
               <p className="text-sm max-w-sm">Separating medieval fact from fiction since 2026. Every article is backed by verified sources. Images are AI-generated.</p>
             </div>
-            <div className="border-t border-[oklch(52%_0.006_260)]/35 pt-8 mt-8 flex justify-between items-center">
+            <div className="border-t border-tiny/35 pt-8 mt-8 flex justify-between items-center">
               <p className="text-xs">&copy; 2026 Medieval Misconceptions</p>
               <p className="font-display text-sm italic">&ldquo;The past is a foreign country — they do things differently there.&rdquo; <span className="text-xs not-italic">— L.P. Hartley</span></p>
             </div>

@@ -1,3 +1,5 @@
+import Section from "@/components/Section";
+
 const stats = [
   { label: "Categories", number: 0 },
   { label: "Topics", number: 0 },
@@ -18,9 +20,7 @@ export default function Home() {
             <p className="font-body font-light text-xl text-background-light/85 max-w-xl mt-5 mb-8">Challenging centuries of embellished history, one well-researched article at a time. The truth is stranger — and more fascinating — than fiction.</p>
             <button className="bg-foreground text-background-light px-8 py-3.5 rounded-full font-medium text-sm">Start Reading</button>
           </div>
-          <div className="mt-20 max-w-5xl w-full mx-auto h-52 rounded-2xl overflow-hidden">
-            <img src="book.jpg" alt="book" className="w-full h-full object-cover" />
-          </div>
+          <img src="book.jpg" alt="Book" className="mt-20 max-w-5xl w-full mx-auto h-52 rounded-2xl object-cover" />
         </div>
       </section>
       <section>
@@ -56,24 +56,63 @@ export default function Home() {
       <section>
         <div>
           <h2>Featured Articles</h2>
+          <p className="text-sm mt-2 text-subtext">Our latest and most popular deep dives into the Middle Ages</p>
+          <div className="grid grid-cols-3 gap-6 mt-10">
+            <div className="bg-background-light rounded-xl border border-[oklch(95%_0.018_82)] overflow-hidden">
+              <img src="https://placehold.co/400x256" className="aspect-video w-full object-cover" />
+              <div className="p-5">
+                <span className="uppercase text-xs font-semibold tracking-wide bg-[oklch(93%_0.06_87)] px-2.5 py-1 rounded-full mb-2.5 inline-block">Category</span>
+                <h3 className="font-semibold text-lg">Article Title Goes Here</h3>
+                <p className="line-clamp-2 text-sm mt-2 mb-4">This is a summary this is a summary.</p>
+                <p className="text-right text-xs text-tiny">Publish date</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section>
-        <div>
-          <h2>Categories</h2>
+      <Section
+        tiny="Explore by theme"
+        title="Popular Categories"
+        subtext="Every article is organized into these major themes"
+        type="categories">
+        <div className="grid grid-cols-3 gap-6 mt-10">
+          <div className="bg-background-dark p-6 rounded-xl">
+            <div className="w-12 h-12 bg-foreground rounded-lg mb-5"></div>
+            <h3 className="font-bold text-lg">Category Title</h3>
+            <p className="mt-2 mb-4 text-sm text-subtext">Description about what the category entails goes here description about what the category entails goes here.</p>
+            <a className="text-xs font-medium text-primary">Browse articles</a>
+          </div>
         </div>
-      </section>
-      <section>
-        <div>
-          <h2>Topics</h2>
+      </Section>
+      <Section
+        tiny="Browse by subject"
+        title="Hottest Topics"
+        subtext="Dive into specific subjects that come up across all categories"
+        type="topics">
+        <div className="flex flex-wrap gap-3 mt-10">
+          <a className="text-sm font-medium bg-background-light px-4 py-2 rounded-full">Topic</a>
         </div>
-      </section>
-      <section>
-        <div>
-          <h2>Historical Figures</h2>
+      </Section>
+      <Section
+        tiny="Meet the people"
+        title="Latest Historical Figures"
+        subtext="The real people behind the myths, legends, and forgotten stories"
+        type="figures">
+        <div className="grid grid-cols-4 gap-6 mt-10">
+          <div className="bg-background-dark rounded-xl overflow-hidden">
+            <div className="relative aspect-square">
+              <img src="https://placehold.co/256" className="w-full h-full object-cover" />
+              <div className="absolute"></div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-bold">Name of Figure</h3>
+              <span className="text-tiny text-xs font-medium">Lifespan</span>
+              <p className="text-sm text-subtext mt-2">Tagline of the figure</p>
+            </div>
+          </div>
         </div>
-      </section>
-      <section><div>Newsletter</div></section>
+      </Section>
+      {/*<section><div>Newsletter</div></section>*/}
     </main>
   );
 }
