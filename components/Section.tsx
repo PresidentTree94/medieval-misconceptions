@@ -15,7 +15,7 @@ export default function Section({ tiny, title, subtext, type, children }: {
         <p className="text-sm text-subtext">{subtext}</p>
         {children}
         <div className="text-center mt-8">
-          <Link href={"/" + type} className="inline-block text-sm font-medium bg-foreground text-background-light px-6 py-3 rounded-full">View all 0 {type}</Link>
+          <Link href={"/" + type} className="inline-flex items-center gap-2 text-sm font-medium bg-foreground text-background-light px-6 py-3 rounded-full">View all 0 {type}<i className="ri-arrow-right-line text-sm"></i></Link>
         </div>
       </div>
     </section>

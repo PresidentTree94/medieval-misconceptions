@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import Category from "@/components/Category";
 
 const stats = [
   { label: "Categories", number: 0 },
@@ -16,23 +17,23 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/25 to-background-light"></div>
         <div className="relative p-8 mt-16 w-full flex flex-col items-center justify-center">
           <div className="text-center flex flex-col items-center">
-            <h1>Everything You Know About the Middle Ages Is Probably Wrong</h1>
+            <h1 className="text-background-light max-w-3xl text-4xl md:text-5xl lg:text-6xl">Everything You Know About the Middle Ages Is Probably Wrong</h1>
             <p className="font-body font-light text-lg md:text-xl text-background-light/85 max-w-xl mt-5 mb-8">Challenging centuries of embellished history, one well-researched article at a time. The truth is stranger — and more fascinating — than fiction.</p>
-            <button className="bg-foreground text-background-light px-8 py-3.5 rounded-full font-medium text-sm">Start Reading</button>
+            <a href="#articles" className="bg-foreground text-background-light px-8 py-3.5 rounded-full font-medium text-sm flex items-center gap-2">Start Reading<i className="ri-arrow-down-line text-base"></i></a>
           </div>
           <img src="book.jpg" alt="Book" className="mt-20 max-w-5xl w-full mx-auto h-32 md:h-42 lg:h-52 rounded-2xl object-cover" />
         </div>
       </section>
       <section>
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="p-8 lg:p-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-0">
+          <div className="sm:p-8 lg:p-12">
             <h2>Why We Started This Blog</h2>
             <p className="mt-4 mb-10 text-sm text-subtext">The Middle Ages span a thousand years of human history, yet pop culture reduces them to mud, misery, and monotony. We started this blog because the real stories are way more interesting — and we got tired of correcting the same myths at dinner parties.</p>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 text-center">
               {stats.map((s, index) => (
                 <div key={index}>
-                  <p className="font-display text-4xl font-bold text-primary">{s.number}</p>
-                  <p className="text-sm text-subtext">{s.label}</p>
+                  <p className="font-display text-3xl md:text-4xl font-bold text-primary">{s.number}</p>
+                  <p className="text-xs md:text-sm text-subtext">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -45,7 +46,9 @@ export default function Home() {
               <div className="absolute top-10 right-16 w-32 h-32 rounded-2xl bg-[oklch(75%_0.11_25)]/20 rotate-45 blur-lg"></div>
               <div className="absolute bottom-12 left-10 w-40 h-24 rounded-full bg-[oklch(87%_0.09_86)]/35 -rotate-12 blur-xl"></div>
               <div className="relative text-center p-10">
-                <div className="w-32 h-32 bg-background-light/80 rounded-full mb-4 mx-auto"></div>
+                <div className="w-32 h-32 bg-background-light/80 rounded-full mb-4 mx-auto flex items-center justify-center">
+                  <i className="ri-book-open-line text-5xl text-primary"></i>
+                </div>
                 <p className="font-display text-xl font-semibold">Veritas in Lucem</p>
                 <p className="text-xs text-subtext">Truth brought to light</p>
               </div>
@@ -53,7 +56,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
+      <section id="articles">
         <div>
           <h2>Featured Articles</h2>
           <p className="text-sm mt-2 text-subtext">Our latest and most popular deep dives into the Middle Ages</p>
@@ -62,7 +65,7 @@ export default function Home() {
               <img src="https://placehold.co/400x256" className="aspect-video w-full object-cover" />
               <div className="p-5">
                 <span className="uppercase text-xs font-semibold tracking-wide bg-[oklch(93%_0.06_87)] px-2.5 py-1 rounded-full mb-2.5 inline-block text-subtext">Category</span>
-                <h3 className="font-semibold text-lg">Article Title Goes Here</h3>
+                <h3 className="font-semibold md:text-lg">Article Title Goes Here</h3>
                 <p className="line-clamp-2 text-sm mt-2 mb-4">This is a summary this is a summary.</p>
                 <p className="text-right text-xs text-tiny">Publish date</p>
               </div>
@@ -76,12 +79,7 @@ export default function Home() {
         subtext="Every article is organized into these major themes"
         type="categories">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          <div className="bg-background-dark p-6 rounded-xl">
-            <div className="w-12 h-12 bg-foreground rounded-lg mb-5"></div>
-            <h3 className="font-bold text-lg">Category Title</h3>
-            <p className="mt-2 mb-4 text-sm text-subtext">Description about what the category entails goes here description about what the category entails goes here.</p>
-            <a className="text-xs font-medium text-primary">Browse articles</a>
-          </div>
+          <Category />
         </div>
       </Section>
       <Section
@@ -112,7 +110,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      {/*<section><div>Newsletter</div></section>*/}
     </main>
   );
 }

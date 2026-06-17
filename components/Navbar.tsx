@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navs = [
@@ -11,20 +12,27 @@ const navs = [
 
 export default function Navbar() {
 
+  const pathname = usePathname();
   const [open, setOpen] = useState(false); 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
+    if (pathname !== "/" || open) {
+      setScrolled(true);
+      return;
+    }
     const handleScroll = () => setScrolled(window.scrollY > 64);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <header className={`fixed top-0 inset-x-0 z-1 ${scrolled || open ? "bg-background-light/95 backdrop-blur-md shadow-sm" : "bg-transparent"}`}>
       <div className="flex flex-col md:flex-row justify-between md:items-center">
         <div className="h-16 flex justify-between items-center px-6">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-lg text-background-light"></div>
+            <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-lg text-background-light">
+              <i className="ri-quill-pen-line text-base"></i>
+            </div>
             <span className={`font-display text-lg font-bold ${scrolled || open ? "text-foreground" : "text-background-light"}`}>Medieval Misconceptions</span>
           </Link>
           <button className={`w-8 h-8 rounded-lg ${scrolled || open ? "bg-background-dark" : "bg-background-light/15"} md:hidden`} onClick={() => setOpen(!open)}></button>

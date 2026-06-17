@@ -6,25 +6,29 @@
   --color-foreground: oklch(12% 0.005 260);
   --color-subtext: oklch(36% 0.007 260);
   --color-tiny: oklch(52% 0.006 260);
-  --color-primary: oklch(55% 0.18 25);
+  --color-primary: oklch(48% 0.16 25);
   --font-display: var(--font-playfair-display);
   --font-body: var(--font-inter);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply font-body text-foreground;
+  @apply font-body bg-background-light text-foreground;
 }
 
 h1, h2, h3 {
   @apply font-display;
 }
 
-h1 {
-  @apply font-bold text-4xl md:text-5xl lg:text-6xl text-background-light max-w-3xl;
+h1, h2 {
+  font-weight: 700;
 }
 
 h2 {
-  @apply font-bold text-4xl;
+  @apply text-2xl md:text-3xl lg:text-4xl;
 }
 
 p {
@@ -35,7 +39,7 @@ section:not(:first-of-type) {
   @apply py-20;
 }
 
-section:not(:first-of-type) > div, footer > div {
+section:not(:first-of-type) > div, footer > div, main > div {
   @apply max-w-6xl mx-auto px-10;
 }
 
@@ -45,4 +49,8 @@ section:nth-of-type(even) {
 
 section:nth-of-type(odd) {
   background-color: var(--color-background-dark);
+}
+
+main {
+  flex: 1;
 }
