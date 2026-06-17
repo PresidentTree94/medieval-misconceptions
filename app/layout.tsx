@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -25,20 +26,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <nav></nav>
+        <Navbar />
         {children}
         <footer className="bg-foreground py-10">
           <div className="text-tiny">
-            <div className="flex justify-between items-start">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-8">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-lg text-background-light"></div>
                 <span className="font-display text-lg font-bold text-background-light">Medieval Misconceptions</span>
               </div>
-              <p className="text-sm max-w-sm">Separating medieval fact from fiction since 2026. Every article is backed by verified sources. Images are AI-generated.</p>
+              <p className="text-sm md:max-w-sm">Separating medieval fact from fiction since 2026. Every article is backed by verified sources. Images are AI-generated.</p>
             </div>
-            <div className="border-t border-tiny/35 pt-8 mt-8 flex justify-between items-center">
+            <div className="border-t border-tiny/35 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-6">
               <p className="text-xs">&copy; 2026 Medieval Misconceptions</p>
-              <p className="font-display text-sm italic">&ldquo;The past is a foreign country — they do things differently there.&rdquo; <span className="text-xs not-italic">— L.P. Hartley</span></p>
+              <p className="font-display text-sm italic text-center sm:text-right flex-1">&ldquo;The past is a foreign country — they do things differently there.&rdquo; <span className="text-xs not-italic">— L.P. Hartley</span></p>
             </div>
           </div>
         </footer>

@@ -20,7 +20,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  @apply font-bold text-6xl text-background-light max-w-3xl;
+  @apply font-bold text-4xl md:text-5xl lg:text-6xl text-background-light max-w-3xl;
 }
 
 h2 {

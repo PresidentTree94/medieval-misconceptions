@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Section({ tiny, title, subtext, type, children }: {
   tiny: string;
   title: string;
@@ -13,7 +15,7 @@ export default function Section({ tiny, title, subtext, type, children }: {
         <p className="text-sm text-subtext">{subtext}</p>
         {children}
         <div className="text-center mt-8">
-          <button className="text-sm font-medium bg-foreground text-background-light px-6 py-3 rounded-full">View all 0 {type}</button>
+          <Link href={"/" + type} className="inline-block text-sm font-medium bg-foreground text-background-light px-6 py-3 rounded-full">View all 0 {type}</Link>
         </div>
       </div>
     </section>
