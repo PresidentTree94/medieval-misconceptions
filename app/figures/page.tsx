@@ -1,4 +1,5 @@
 import Page from "@/components/Page";
+import Figure from "@/components/Figure";
 
 export default function Figures() {
   return (
@@ -6,7 +7,9 @@ export default function Figures() {
       tiny="People Who Shaped the Era"
       title="Historical Figures"
       subtext="The real people behind the myths, legends, and forgotten stories. Discover who actually did what.">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10"></div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
+        <Figure />
+      </div>
     </Page>
   );
 }

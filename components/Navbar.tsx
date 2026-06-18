@@ -35,7 +35,9 @@ export default function Navbar() {
             </div>
             <span className={`font-display text-lg font-bold ${scrolled || open ? "text-foreground" : "text-background-light"}`}>Medieval Misconceptions</span>
           </Link>
-          <button className={`w-8 h-8 rounded-lg ${scrolled || open ? "bg-background-dark" : "bg-background-light/15"} md:hidden`} onClick={() => setOpen(!open)}></button>
+          <button className={`w-8 h-8 rounded-lg ${scrolled || open ? "bg-background-dark" : "bg-background-light/15"} md:hidden cursor-pointer`} onClick={() => setOpen(!open)}>
+            <i className={`${open ? "ri-close-line" : "ri-menu-line"} text-lg`}></i>
+          </button>
         </div>
         <nav className={`text-sm font-medium ${open ? "flex" : "hidden md:flex"} flex-col md:flex-row gap-1 px-6 py-6 md:py-0`}>
           {navs.map((n, index) => (

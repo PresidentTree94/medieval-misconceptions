@@ -1,5 +1,7 @@
 import Section from "@/components/Section";
 import Category from "@/components/Category";
+import Topic from "@/components/Topic";
+import Figure from "@/components/Figure";
 
 const stats = [
   { label: "Categories", number: 0 },
@@ -88,7 +90,7 @@ export default function Home() {
         subtext="Dive into specific subjects that come up across all categories"
         type="topics">
         <div className="flex flex-wrap gap-3 mt-10">
-          <a className="text-sm font-medium bg-background-light px-4 py-2 rounded-full">Topic</a>
+          <Topic />
         </div>
       </Section>
       <Section
@@ -97,17 +99,7 @@ export default function Home() {
         subtext="The real people behind the myths, legends, and forgotten stories"
         type="figures">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
-          <div className="bg-background-dark rounded-xl overflow-hidden">
-            <div className="relative aspect-square">
-              <img src="https://placehold.co/256" className="w-full h-full object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background-dark to-transparent"></div>
-            </div>
-            <div className="p-4">
-              <h3 className="font-bold">Name of Figure</h3>
-              <span className="text-tiny text-xs font-medium">Lifespan</span>
-              <p className="text-sm text-subtext mt-2">Tagline of the figure</p>
-            </div>
-          </div>
+          <Figure />
         </div>
       </Section>
     </main>
