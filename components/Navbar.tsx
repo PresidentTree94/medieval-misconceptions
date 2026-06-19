@@ -7,7 +7,7 @@ const navs = [
   { text: "Categories", link: "/categories" },
   { text: "Topics", link: "/topics" },
   { text: "Historical Figures", link: "/figures" },
-  { text: "About", link: "/about" }
+  //{ text: "About", link: "/about" }
 ];
 
 export default function Navbar() {

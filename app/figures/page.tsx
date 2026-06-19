@@ -1,15 +1,12 @@
-import Page from "@/components/Page";
-import Figure from "@/components/Figure";
+import { client } from "@/sanity/lib/client"
+import { getAllFigures } from "@/sanity/lib/queries";
+import FigurePage from "./Figures";
 
-export default function Figures() {
+export default async function Figures() {
+
+  const figureData = await client.fetch(getAllFigures, {}, { next: { tags: ["figureDocument"] } });
+
   return (
-    <Page
-      tiny="People Who Shaped the Era"
-      title="Historical Figures"
-      subtext="The real people behind the myths, legends, and forgotten stories. Discover who actually did what.">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
-        <Figure />
-      </div>
-    </Page>
+    <FigurePage data={figureData} />
   );
 }

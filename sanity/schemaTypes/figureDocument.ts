@@ -15,6 +15,16 @@ export default defineType({
       options: { source: "name" }
     }),
     defineField({
+      name: "image",
+      type: "image",
+      fields: [
+        defineField({
+          name: "alt",
+          type: "string"
+        })
+      ]
+    }),
+    defineField({
       name: "born",
       type: "string"
     }),

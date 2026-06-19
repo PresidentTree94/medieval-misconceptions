@@ -38,7 +38,7 @@ export default function RootLayout({
                 </div>
                 <span className="font-display text-lg font-bold text-background-light">Medieval Misconceptions</span>
               </div>
-              <p className="text-sm md:max-w-sm">Separating medieval fact from fiction since 2026. Every article is backed by verified sources. Images are AI-generated.</p>
+              <p className="text-sm md:max-w-sm">Separating medieval fact from fiction since 2026. Every article is backed by verified sources. Most images are AI-generated, but accurate.</p>
             </div>
             <div className="border-t border-tiny/35 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-6">
               <p className="text-xs">&copy; 2026 Medieval Misconceptions</p>

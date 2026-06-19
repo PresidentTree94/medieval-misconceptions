@@ -1,13 +1,14 @@
 import Link from "next/link";
+import { CategoryType } from "@/types/categoryType";
 
-export default function Category() {
+export default function Category({ data }: { data: CategoryType }) {
   return (
-    <Link href="/categories/test" className="bg-background-dark p-6 rounded-xl">
+    <Link href={`/categories/${data.slug}`} className="bg-background-dark p-6 rounded-xl">
       <div className="w-12 h-12 bg-foreground rounded-lg mb-5 flex justify-center items-center">
-        <i className="ri-book-shelf-line text-xl text-background-light"></i>
+        <i className={`${data.icon ? data.icon : "ri-book-shelf-line"} text-xl text-background-light`}></i>
       </div>
-      <h3 className="font-bold text-lg">Category Title</h3>
-      <p className="mt-2 mb-4 text-sm text-subtext">Description about what the category entails goes here description about what the category entails goes here.</p>
+      <h3 className="font-bold text-lg">{data.title}</h3>
+      <p className="mt-2 mb-4 text-sm text-subtext">{data.description}</p>
       <span className="text-xs font-medium text-primary flex items-center gap-1">Browse articles<i className="ri-arrow-right-line text-xs"></i></span>
     </Link>
   );

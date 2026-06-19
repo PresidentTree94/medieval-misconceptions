@@ -15,6 +15,16 @@ export default defineType({
       options: { source: "title" }
     }),
     defineField({
+      name: "image",
+      type: "image",
+      fields: [
+        defineField({
+          name: "alt",
+          type: "string"
+        })
+      ]
+    }),
+    defineField({
       name: "category",
       type: "reference",
       to: [{ type: "categoryDocument" }]

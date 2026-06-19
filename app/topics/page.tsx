@@ -1,15 +1,12 @@
-import Page from "@/components/Page";
-import Topic from "@/components/Topic";
+import { client } from "@/sanity/lib/client"
+import { getAllTopics } from "@/sanity/lib/queries";
+import TopicPage from "./Topics";
 
-export default function Topics() {
+export default async function Topics() {
+
+  const topicData = await client.fetch(getAllTopics, {}, { next: { tags: ["topicDocument"] } });
+
   return (
-    <Page
-      tiny="Explore by subject"
-      title="All Topics"
-      subtext="Tags cut across categories — follow a thread and see how the same subject appears across all walks of life.">
-      <div className="flex flex-wrap gap-3 mt-10">
-        <Topic />
-      </div>
-    </Page>
+    <TopicPage data={topicData} />
   );
 }
