@@ -1,4 +1,4 @@
 export type TopicType = {
   title: string;
-  slug: string;
+  slug: { current: string };
 }

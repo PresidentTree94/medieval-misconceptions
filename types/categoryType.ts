@@ -1,6 +1,6 @@
 export type CategoryType = {
   title: string;
-  slug: string;
+  slug: { current: string };
   icon: string;
   description: string;
 }

@@ -3,7 +3,7 @@ import { CategoryType } from "@/types/categoryType";
 
 export default function Category({ data }: { data: CategoryType }) {
   return (
-    <Link href={`/categories/${data.slug}`} className="bg-background-dark p-6 rounded-xl">
+    <Link href={`/categories/${data.slug.current}`} className="bg-background-dark p-6 rounded-xl">
       <div className="w-12 h-12 bg-foreground rounded-lg mb-5 flex justify-center items-center">
         <i className={`${data.icon ? data.icon : "ri-book-shelf-line"} text-xl text-background-light`}></i>
       </div>

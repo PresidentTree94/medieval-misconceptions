@@ -5,7 +5,7 @@ export default function Page({ tiny, title, subtext, children }: {
   children: React.ReactNode;
 }) {
   return (
-    <main className="pt-24 pb-16">
+    <main>
       <div>
         <p className="text-xs font-medium uppercase tracking-widest text-tiny">{tiny}</p>
         <h1 className="text-3xl md:text-4xl lg:text-5xl my-3">{title}</h1>

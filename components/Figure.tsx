@@ -5,9 +5,9 @@ import { urlFor } from "@/sanity/lib/image";
 
 export default function Figure({ data }: { data: FigureType }) {
   return (
-    <Link href={`/figures/${data.slug}`} className="bg-background-dark rounded-xl overflow-hidden">
+    <Link href={`/figures/${data.slug.current}`} className="bg-background-dark rounded-xl overflow-hidden">
       <div className="relative aspect-square">
-        <Image src={data.image ? urlFor(data.image).url() : "https://placehold.co/256/png"} alt={data.image.alt} fill className="w-full h-full object-cover" />
+        <Image src={data.image ? urlFor(data.image).url() : "https://placehold.co/256/png"} alt={data.image ? data.image.alt : ""} fill className="w-full h-full object-cover" />
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background-dark to-transparent"></div>
       </div>
       <div className="p-4">

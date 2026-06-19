@@ -7,6 +7,8 @@
   --color-subtext: oklch(36% 0.007 260);
   --color-tiny: oklch(52% 0.006 260);
   --color-primary: oklch(48% 0.16 25);
+  --color-secondary: oklch(93% 0.015 78);
+  --color-accent: oklch(93% 0.06 87);
   --font-display: var(--font-playfair-display);
   --font-body: var(--font-inter);
 }
@@ -52,5 +54,5 @@ section:nth-of-type(odd) {
 }
 
 main {
-  flex: 1;
+  @apply flex-1 pt-24 pb-16;
 }
