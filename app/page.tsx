@@ -33,7 +33,7 @@ export default async function Home() {
           <div className="text-center flex flex-col items-center">
             <h1 className="text-background-light max-w-3xl text-4xl md:text-5xl lg:text-6xl">Everything You Know About the Middle Ages Is Probably Wrong</h1>
             <p className="font-body font-light text-lg md:text-xl text-background-light/85 max-w-xl mt-5 mb-8">Challenging centuries of embellished history, one well-researched article at a time. The truth is stranger — and more fascinating — than fiction.</p>
-            <a href="#articles" className="bg-foreground text-background-light px-8 py-3.5 rounded-full font-medium text-sm flex items-center gap-2">Start Reading<i className="ri-arrow-down-line text-base"></i></a>
+            <a href="#articles" className="bg-foreground text-background-light px-8 py-3.5 rounded-full font-medium text-sm flex items-center gap-2 hover:bg-[oklch(30%_0.007_260)] transition-colors">Start Reading<i className="ri-arrow-down-line text-base"></i></a>
           </div>
           <Image src="/book.jpg" alt="Book" width={1} height={1} sizes="100vw" className="mt-20 max-w-5xl w-full mx-auto h-32 md:h-42 lg:h-52 rounded-2xl object-cover" />
         </div>
@@ -101,7 +101,7 @@ export default async function Home() {
         number={topicData.length}>
         <div className="flex flex-wrap gap-3 mt-10">
           {topicData.map((t: TopicType, index: number) => (
-            <Link key={index} href={`/topics/${t.slug.current}`} className="text-sm font-medium bg-background-light px-4 py-2 rounded-full">{t.title}</Link>
+            <Link key={index} href={`/topics/${t.slug.current}`} className="text-sm font-medium bg-background-light px-4 py-2 rounded-full transition-colors hover:bg-secondary/70">{t.title}</Link>
           ))}
         </div>
       </Section>

@@ -7,7 +7,7 @@ export default function Page({ tiny, title, subtext, children }: {
   return (
     <main>
       <div>
-        <p className="text-xs font-medium uppercase tracking-widest text-tiny">{tiny}</p>
+        <p className="tiny">{tiny}</p>
         <h1 className="text-3xl md:text-4xl lg:text-5xl my-3">{title}</h1>
         <p className="text-subtext text-sm max-w-lg">{subtext}</p>
         {children}

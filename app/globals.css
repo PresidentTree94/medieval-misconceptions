@@ -56,3 +56,9 @@ section:nth-of-type(odd) {
 main {
   @apply flex-1 pt-24 pb-16;
 }
+
+@layer components {
+  .tiny {
+    @apply text-xs font-medium uppercase tracking-widest text-tiny;
+  }
+}

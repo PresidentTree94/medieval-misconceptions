@@ -11,7 +11,7 @@ export default function Section({ tiny, title, subtext, type, number = 0, childr
   return (
     <section>
       <div>
-        <p className="text-xs font-medium uppercase tracking-widest text-tiny">{tiny}</p>
+        <p className="tiny">{tiny}</p>
         <h2 className="my-2">{title}</h2>
         <p className="text-sm text-subtext">{subtext}</p>
         {children}

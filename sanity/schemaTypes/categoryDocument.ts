@@ -16,7 +16,8 @@ export default defineType({
     }),
     defineField({
       name: "icon",
-      type: "string"
+      type: "string",
+      initialValue: "ri-book-shelf-line"
     }),
     defineField({
       name: "description",

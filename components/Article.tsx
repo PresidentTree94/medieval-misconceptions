@@ -5,13 +5,13 @@ import { urlFor } from "@/sanity/lib/image";
 
 export default function Article({ isLight, data }: { isLight?: boolean, data: ArticleType }) {
   return (
-    <Link href={`/article/${data.slug.current}`} className={`${isLight ? "bg-background-light" : "bg-background-dark"} rounded-xl border border-[oklch(95%_0.018_82)] overflow-hidden`}>
-      <div className="relative aspect-video">
-        <Image src={data.image ? urlFor(data.image).url() : "https://placehold.co/400x256/png"} alt={data.image ? data.image.alt : ""} fill className="w-full h-full object-cover" />
+    <Link href={`/article/${data.slug.current}`} className={`${isLight ? "bg-background-light" : "bg-background-dark"} rounded-xl border border-secondary overflow-hidden group transition-colors hover:border-primary/25`}>
+      <div className="relative aspect-video overflow-hidden">
+        <Image src={data.image ? urlFor(data.image).url() : "https://placehold.co/400x256/png"} alt={data.image ? data.image.alt : ""} fill className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
       <div className="p-5">
         <span className="uppercase text-xs font-semibold tracking-wide bg-accent px-2.5 py-1 rounded-full mb-2.5 inline-block text-subtext">{data.category.title}</span>
-        <h3 className="font-semibold md:text-lg line-clamp-2">{data.title}</h3>
+        <h3 className="font-semibold md:text-lg line-clamp-2 transition-colors group-hover:text-primary">{data.title}</h3>
         <p className="line-clamp-2 text-sm mt-2 text-subtext">This is a summary this is a summary.</p>
         <div className="mt-3 text-xs font-medium flex flex-wrap gap-1.5">
           {data.topics.map((t, index) => (

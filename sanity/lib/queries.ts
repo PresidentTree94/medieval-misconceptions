@@ -17,15 +17,6 @@ export const getAllArticles = `
   }
 `
 
-export const getAllCategories = `
-  *[_type == "categoryDocument"]{
-    title,
-    slug,
-    icon,
-    description
-  }
-`
-
 export const getArticlesByCategory = `
   *[_type == "articleDocument" && category->slug.current == $slug]{
     title,
@@ -46,13 +37,6 @@ export const getArticlesByCategory = `
   }
 `
 
-export const getAllTopics = `
-  *[_type == "topicDocument"]{
-    title,
-    slug
-  }
-`
-
 export const getArticlesByTopic = `
   *[_type == "articleDocument" && $slug in topics[]->slug.current]{
     title,
@@ -70,6 +54,38 @@ export const getArticlesByTopic = `
     },
     body,
     publishedAt
+  }
+`
+
+export const getAllCategories = `
+  *[_type == "categoryDocument"]{
+    title,
+    slug,
+    icon,
+    description
+  }
+`
+
+export const getCategoryBySlug = `
+  *[_type == "categoryDocument" && slug.current == $slug][0]{
+    title,
+    slug,
+    icon,
+    description
+  }
+`
+
+export const getAllTopics = `
+  *[_type == "topicDocument"]{
+    title,
+    slug
+  }
+`
+
+export const getTopicBySlug = `
+  *[_type == "topicDocument" && slug.current == $slug][0]{
+    title,
+    slug
   }
 `
 
