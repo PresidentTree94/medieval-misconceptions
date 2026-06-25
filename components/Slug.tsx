@@ -3,7 +3,7 @@ import { TopicType } from "@/types/topicType";
 import { ArticleType } from "@/types/articleType";
 import Article from "./Article";
 
-export default async function Slug({ slugData, articleData }: {
+export default function Slug({ slugData, articleData }: {
   slugData: CategoryType | TopicType;
   articleData: ArticleType[];
 }) {

@@ -16,14 +16,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false); 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    if (pathname !== "/" || open) {
+    if (!(pathname === "/" || pathname.startsWith("/articles")) || open) {
       setScrolled(true);
       return;
     }
     const handleScroll = () => setScrolled(window.scrollY > 64);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  }, [pathname, open]);
 
   return (
     <header className={`fixed top-0 inset-x-0 z-1 ${scrolled || open ? "bg-background-light/95 backdrop-blur-md shadow-sm" : "bg-transparent"} transition-all duration-300`}>

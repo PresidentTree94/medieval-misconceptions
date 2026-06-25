@@ -5,9 +5,9 @@ import { urlFor } from "@/sanity/lib/image";
 
 export default function Article({ isLight, data }: { isLight?: boolean, data: ArticleType }) {
   return (
-    <Link href={`/article/${data.slug.current}`} className={`${isLight ? "bg-background-light" : "bg-background-dark"} rounded-xl border border-secondary overflow-hidden group transition-colors hover:border-primary/25`}>
+    <Link href={`/articles/${data.slug.current}`} className={`${isLight ? "bg-background-light" : "bg-background-dark"} rounded-xl border border-secondary overflow-hidden group transition-colors hover:border-primary/25`}>
       <div className="relative aspect-video overflow-hidden">
-        <Image src={data.image ? urlFor(data.image).url() : "https://placehold.co/400x256/png"} alt={data.image ? data.image.alt : ""} fill sizes="100%" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <Image src={data.image ? urlFor(data.image).url() : "https://placehold.co/400x256/png"} alt={data.image ? data.image.alt : ""} fill sizes="100%" className="object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
       <div className="p-5">
         <span className="uppercase text-xs font-semibold tracking-wide bg-accent px-2.5 py-1 rounded-full mb-2.5 inline-block text-subtext">{data.category.title}</span>

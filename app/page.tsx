@@ -27,7 +27,7 @@ export default async function Home() {
   return (
     <main className="!py-0">
       <section className="relative min-h-screen flex">
-        <Image src="/hero.png" alt="Background" fill sizes="100%" className="w-full h-full object-cover" />
+        <Image src="/hero.png" alt="Background" fill sizes="100%" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/25 to-background-light"></div>
         <div className="relative p-8 mt-16 w-full flex flex-col items-center justify-center">
           <div className="text-center flex flex-col items-center">
@@ -35,7 +35,9 @@ export default async function Home() {
             <p className="font-body font-light text-lg md:text-xl text-background-light/85 max-w-xl mt-5 mb-8">Challenging centuries of embellished history, one well-researched article at a time. The truth is stranger — and more fascinating — than fiction.</p>
             <a href="#articles" className="bg-foreground text-background-light px-8 py-3.5 rounded-full font-medium text-sm flex items-center gap-2 hover:bg-[oklch(30%_0.007_260)] transition-colors">Start Reading<i className="ri-arrow-down-line text-base"></i></a>
           </div>
-          <Image src="/book.jpg" alt="Book" width={1} height={1} sizes="100%" className="mt-20 max-w-5xl w-full mx-auto h-32 md:h-42 lg:h-52 rounded-2xl object-cover" />
+          <div className="relative mt-20 max-w-5xl w-full mx-auto h-32 md:h-42 lg:h-52 rounded-2xl overflow-hidden">
+            <Image src="/book.jpg" alt="Book" fill sizes="100%" className="object-cover" />
+          </div>
         </div>
       </section>
       <section>

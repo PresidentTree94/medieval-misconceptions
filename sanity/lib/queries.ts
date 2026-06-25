@@ -1,105 +1,108 @@
-export const getAllArticles = `
-  *[_type == "articleDocument"]{
+const articleFields = `
+  title,
+  slug,
+  image{
+    asset,
+    alt
+  },
+  category->{
     title,
-    slug,
-    image{
-      asset,
-      alt
-    },
-    category->{
-      title
-    },
-    topics[]->{
-      title
-    },
-    body,
-    publishedAt
+    slug
+  },
+  topics[]->{
+    title,
+    slug
+  },
+  body,
+  publishedAt
+`
+
+const categoryFields = `
+  title,
+  slug,
+  icon,
+  description
+`
+
+const topicFields = `
+  title,
+  slug
+`
+
+const figureFields = `
+  name,
+  slug,
+  image{
+    asset,
+    alt
+  },
+  born,
+  died,
+  tagline,
+  body
+`
+
+export const getAllArticles = `
+  *[_type == "articleDocument"]
+    | order(publishedAt desc) {
+    ${articleFields}
   }
 `
 
 export const getArticlesByCategory = `
-  *[_type == "articleDocument" && category->slug.current == $slug]{
-    title,
-    slug,
-    image{
-      asset,
-      alt
-    },
-    category->{
-      title,
-      slug
-    },
-    topics[]->{
-      title
-    },
-    body,
-    publishedAt
+  *[_type == "articleDocument" && category->slug.current == $slug]
+    | order(publishedAt desc) {
+    ${articleFields}
   }
 `
 
 export const getArticlesByTopic = `
-  *[_type == "articleDocument" && $slug in topics[]->slug.current]{
-    title,
-    slug,
-    image{
-      asset,
-      alt
-    },
-    category->{
-      title,
-    },
-    topics[]->{
-      title,
-      slug
-    },
-    body,
-    publishedAt
+  *[_type == "articleDocument" && $slug in topics[]->slug.current]
+    | order(publishedAt desc) {
+    ${articleFields}
+  }
+`
+
+export const getArticleBySlug = `
+  *[_type == "articleDocument" && slug.current == $slug][0] {
+    ${articleFields}
   }
 `
 
 export const getAllCategories = `
-  *[_type == "categoryDocument"]{
-    title,
-    slug,
-    icon,
-    description
+  *[_type == "categoryDocument"]
+    | order(title asc) {
+    ${categoryFields}
   }
 `
 
 export const getCategoryBySlug = `
-  *[_type == "categoryDocument" && slug.current == $slug][0]{
-    title,
-    slug,
-    icon,
-    description
+  *[_type == "categoryDocument" && slug.current == $slug][0] {
+    ${categoryFields}
   }
 `
 
 export const getAllTopics = `
-  *[_type == "topicDocument"]{
-    title,
-    slug
+  *[_type == "topicDocument"]
+    | order(title asc) {
+    ${topicFields}
   }
 `
 
 export const getTopicBySlug = `
-  *[_type == "topicDocument" && slug.current == $slug][0]{
-    title,
-    slug
+  *[_type == "topicDocument" && slug.current == $slug][0] {
+    ${topicFields}
   }
 `
 
 export const getAllFigures = `
-  *[_type == "figureDocument"]{
-    name,
-    slug,
-    image{
-      asset,
-      alt
-    },
-    born,
-    died,
-    tagline,
-    body
+  *[_type == "figureDocument"] {
+    ${figureFields}
+  }
+`
+
+export const getFigureBySlug = `
+  *[_type == "figureDocument" && slug.current == $slug][0] {
+    ${figureFields}
   }
 `
