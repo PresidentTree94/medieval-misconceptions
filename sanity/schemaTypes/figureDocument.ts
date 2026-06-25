@@ -33,6 +33,42 @@ export default defineType({
       type: "string"
     }),
     defineField({
+      name: "father",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "figureDocument" }]
+        },
+        {
+          type: "object",
+          name: "unlinkedParent",
+          fields: [{
+            name: "name",
+            type: "string"
+          }]
+        }
+      ]
+    }),
+    defineField({
+      name: "mother",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "figureDocument" }]
+        },
+        {
+          type: "object",
+          name: "unlinkedParent",
+          fields: [{
+            name: "name",
+            type: "string"
+          }]
+        }
+      ]
+    }),
+    defineField({
       name: "tagline",
       type: "string"
     }),

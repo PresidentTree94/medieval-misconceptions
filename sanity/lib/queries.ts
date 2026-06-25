@@ -38,6 +38,14 @@ const figureFields = `
   },
   born,
   died,
+  "father": {
+    "name": coalesce(father[0]->name, father[0].name),
+    "slug": father[0]->slug.current
+  },
+  "mother": {
+    "name": coalesce(mother[0]->name, mother[0].name),
+    "slug": mother[0]->slug.current
+  },
   tagline,
   body
 `

@@ -20,10 +20,11 @@ export default function Navbar() {
       setScrolled(true);
       return;
     }
+    setScrolled(false);
     const handleScroll = () => setScrolled(window.scrollY > 64);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname, open]);
+  }, [pathname]);
 
   return (
     <header className={`fixed top-0 inset-x-0 z-1 ${scrolled || open ? "bg-background-light/95 backdrop-blur-md shadow-sm" : "bg-transparent"} transition-all duration-300`}>
@@ -39,7 +40,7 @@ export default function Navbar() {
             <i className={`${open ? "ri-close-line" : "ri-menu-line"} text-lg`}></i>
           </button>
         </div>
-        <nav className={`text-sm font-medium ${open ? "flex" : "hidden md:flex"} flex-col md:flex-row gap-1 px-6 py-6 md:py-0`}>
+        <nav className={`text-sm font-medium ${open ? "flex" : "hidden md:flex"} flex-col md:flex-row gap-1 px-6 py-6 md:py-0 border-t md:border-t-0 border-secondary`}>
           {navs.map((n, index) => (
             <Link key={index} href={n.link} className={`px-3 py-2 rounded-md ${scrolled || open ? "text-subtext hover:text-primary hover:bg-primary/5" : "text-background-light/90 hover:text-background-light hover:bg-background-light/15"} transition-colors`} onClick={() => setOpen(false)}>{n.text}</Link> 
           ))}

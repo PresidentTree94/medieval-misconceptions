@@ -6,6 +6,8 @@ export type FigureType = {
   image: Image & { alt: string };
   born: string;
   died: string;
+  father: { name: string; slug: string | null; };
+  mother: { name: string; slug: string | null; };
   tagline: string;
   body: any;
 }

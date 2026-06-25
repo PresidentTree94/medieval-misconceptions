@@ -44,7 +44,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-0">
           <div className="sm:p-8 lg:p-12">
             <h2>Why We Started This Blog</h2>
-            <p className="mt-4 mb-10 text-sm text-subtext">The Middle Ages span a thousand years of human history, yet pop culture reduces them to mud, misery, and monotony. We started this blog because the real stories are way more interesting — and we got tired of correcting the same myths at dinner parties.</p>
+            <p className="mt-4 mb-8 text-sm text-subtext">The Middle Ages span a thousand years of human history, yet pop culture reduces them to mud, misery, and monotony. We started this blog because the real stories are way more interesting — and we got tired of correcting the same myths at dinner parties.</p>
             <div className="grid grid-cols-3 gap-4 text-center">
               {stats.map((s, index) => (
                 <div key={index}>
