@@ -10,6 +10,7 @@ import Section from "@/components/Section";
 import Article from "@/components/Article";
 import Category from "@/components/Category";
 import Figure from "@/components/Figure";
+import Placeholder from "@/components/Placeholder";
 
 export default async function Home() {
 
@@ -75,12 +76,16 @@ export default async function Home() {
       <section id="articles">
         <div>
           <h2>Featured Articles</h2>
-          <p className="text-sm mt-2 text-subtext">Our latest and most popular deep dives into the Middle Ages</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-            {articleData.slice(0, 6).map((a: ArticleType, index: number) => (
-              <Article key={index} isLight data={a} />
-            ))}
-          </div>
+          <p className="text-sm mt-2 mb-10 text-subtext">Our latest and most popular deep dives into the Middle Ages</p>
+          {articleData.length === 0 ? (
+            <Placeholder backgroundColor="background-light" type="articles" />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articleData.slice(0, 6).map((a: ArticleType, index: number) => (
+                <Article key={index} isLight data={a} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
       <Section
@@ -89,11 +94,15 @@ export default async function Home() {
         subtext="Every article is organized into these major themes"
         type="categories"
         number={categoryData.length}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          {categoryData.slice(0, 3).map((c: CategoryType, index: number) => (
-            <Category key={index} data={c} />
-          ))}
-        </div>
+        {categoryData.length === 0 ? (
+          <Placeholder backgroundColor="background-dark" type="categories" />
+        ) : (
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categoryData.slice(0, 3).map((c: CategoryType, index: number) => (
+              <Category key={index} data={c} />
+            ))}
+          </div>
+        )}
       </Section>
       <Section
         tiny="Browse by subject"
@@ -101,11 +110,15 @@ export default async function Home() {
         subtext="Dive into specific subjects that come up across all categories"
         type="topics"
         number={topicData.length}>
-        <div className="flex flex-wrap gap-3 mt-10">
-          {topicData.map((t: TopicType, index: number) => (
-            <Link key={index} href={`/topics/${t.slug.current}`} className="text-sm font-medium bg-background-light px-4 py-2 rounded-full transition-colors hover:bg-secondary/70">{t.title}</Link>
-          ))}
-        </div>
+        {topicData.length === 0 ? (
+          <Placeholder backgroundColor="background-light" type="topics" />
+        ) : (
+          <div className="flex flex-wrap gap-3">
+            {topicData.map((t: TopicType, index: number) => (
+              <Link key={index} href={`/topics/${t.slug.current}`} className="text-sm font-medium bg-background-light px-4 py-2 rounded-full transition-colors hover:bg-secondary/70">{t.title}</Link>
+            ))}
+          </div>
+        )}
       </Section>
       <Section
         tiny="Meet the people"
@@ -113,11 +126,15 @@ export default async function Home() {
         subtext="The real people behind the myths, legends, and forgotten stories"
         type="figures"
         number={figureData.length}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
-          {figureData.slice(0, 4).map((f: FigureType, index: number) => (
-            <Figure key={index} data={f} />
-          ))}
-        </div>
+        {figureData.length === 0 ? (
+          <Placeholder backgroundColor="background-dark" type="figures" />
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {figureData.slice(0, 4).map((f: FigureType, index: number) => (
+              <Figure key={index} data={f} />
+            ))}
+          </div>
+        )}
       </Section>
     </main>
   );

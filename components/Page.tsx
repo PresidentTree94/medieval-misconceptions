@@ -9,7 +9,7 @@ export default function Page({ tiny, title, subtext, children }: {
       <div>
         <p className="tiny">{tiny}</p>
         <h1 className="text-3xl md:text-4xl lg:text-5xl my-3">{title}</h1>
-        <p className="text-subtext text-sm max-w-lg">{subtext}</p>
+        <p className="text-subtext text-sm max-w-lg mb-10">{subtext}</p>
         {children}
       </div>
     </main>

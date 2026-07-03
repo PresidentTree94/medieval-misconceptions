@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client"
 import { getFigureBySlug } from "@/sanity/lib/queries";
 import { FigureType } from "@/types/figureType";
@@ -10,6 +11,11 @@ export default async function FigureSlug(props: { params: { slug: string } }) {
 
   const { slug } = await props.params;
   const figureData = await client.fetch<FigureType>(getFigureBySlug, { slug }, { next: { tags: ["figureDocument"] } });
+
+  if (!figureData) {
+    notFound();
+  }
+
   const { name, image, born, died, father, mother, tagline, body } = figureData;
   const textClass = "text-sm font-medium";
 

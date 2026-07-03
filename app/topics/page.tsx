@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client"
 import { getAllTopics } from "@/sanity/lib/queries";
 import Page from "@/components/Page";
 import { TopicType } from "@/types/topicType";
+import Placeholder from "@/components/Placeholder";
 
 export default async function Topics() {
 
@@ -13,11 +14,15 @@ export default async function Topics() {
       tiny="Explore by subject"
       title="All Topics"
       subtext="Tags cut across categories — follow a thread and see how the same subject appears across all walks of life.">
-      <div className="flex flex-wrap gap-3 mt-10">
-        {topicData.map((t: TopicType, index: number) => (
-          <Link key={index} href={`/topics/${t.slug.current}`} className="text-sm font-medium bg-secondary/70 px-5 py-2.5 rounded-full transition-colors hover:bg-secondary">{t.title}</Link>
-        ))}
-      </div>
+      {topicData.length === 0 ? (
+        <Placeholder backgroundColor="background-dark" type="topics" />
+      ) : (
+        <div className="flex flex-wrap gap-3 mt-10">
+          {topicData.map((t: TopicType, index: number) => (
+            <Link key={index} href={`/topics/${t.slug.current}`} className="text-sm font-medium bg-secondary/70 px-5 py-2.5 rounded-full transition-colors hover:bg-secondary">{t.title}</Link>
+          ))}
+        </div>
+      )}
     </Page>
   );
 }

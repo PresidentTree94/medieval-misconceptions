@@ -3,6 +3,7 @@ import { getAllFigures } from "@/sanity/lib/queries";
 import Page from "@/components/Page";
 import { FigureType } from "@/types/figureType";
 import Figure from "@/components/Figure";
+import Placeholder from "@/components/Placeholder";
 
 export default async function Figures() {
 
@@ -13,11 +14,15 @@ export default async function Figures() {
       tiny="People Who Shaped the Era"
       title="Historical Figures"
       subtext="The real people behind the myths, legends, and forgotten stories. Discover who actually did what.">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
-        {figureData.map((f: FigureType, index: number) => (
-          <Figure key={index} data={f} />
-        ))}
-      </div>
+      {figureData.length === 0 ? (
+        <Placeholder backgroundColor="background-dark" type="figures" />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
+          {figureData.map((f: FigureType, index: number) => (
+            <Figure key={index} data={f} />
+          ))}
+        </div>
+      )}
     </Page>
   );
 }

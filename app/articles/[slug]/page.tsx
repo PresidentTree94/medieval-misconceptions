@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client"
 import { getArticleBySlug } from "@/sanity/lib/queries";
 import { ArticleType } from "@/types/articleType";
@@ -10,6 +11,11 @@ export default async function ArticleSlug(props: { params: { slug: string } }) {
 
   const { slug } = await props.params;
   const articleData = await client.fetch<ArticleType>(getArticleBySlug, { slug }, { next: { tags: ["articleDocument"] } });
+
+  if (!articleData) {
+    notFound();
+  }
+  
   const { title, image, category, topics, body, publishedAt } = articleData;
 
   return (
